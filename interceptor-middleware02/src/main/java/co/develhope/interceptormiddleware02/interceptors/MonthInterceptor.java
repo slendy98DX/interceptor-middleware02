@@ -32,7 +32,7 @@ public class MonthInterceptor implements HandlerInterceptor {
             int monthNumberInt = Integer.parseInt(monthNumber);
             Month month = months.stream().filter(singleMonth -> {
                 return singleMonth.getMonthNumber() == monthNumberInt;
-            }).findFirst().orElseGet(() -> new Month(0, "nope", "nope", "nope"));
+            }).findFirst().orElseGet(() -> new Month(monthNumberInt, "nope", "nope", "nope"));
             request.setAttribute("monthNumber", month);
         }
         response.setStatus(HttpServletResponse.SC_OK);
